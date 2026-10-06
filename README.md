@@ -3,9 +3,9 @@
 A simulated driver is filmed by virtual cameras in Unity. A Python pipeline tracks gaze, glances, hands and reaction time
 from those frames with MediaPipe and OpenCV, and the results are scored against what the simulator knows to be true.
 
-[![Dashboard recording of a live session](docs/demo.gif)](docs/demo.mp4)
+[![Dashboard recording of a live session](docs/live-session.gif)](docs/live-session.mp4)
 
-*Sixteen seconds of a live session in real time. The full 58 second recording is [`docs/demo.mp4`](docs/demo.mp4).*
+*Twenty seconds of the live session, in real time. The full recording of the second half of the drive, with both pedestrians and the conversation, is [`docs/live-session.mp4`](docs/live-session.mp4) (46 seconds). The clip starts 12 seconds into the drive.*
 
 This started as a module inside my Unity driving simulator,
 [VehicleSafetySim_2026](https://github.com/AbhishekDubasi09/VehicleSafetySim_2026), and the two repositories describe the
