@@ -1,0 +1,74 @@
+{
+  "frames_received_cam0": 1123,
+  "frames_processed": 1123,
+  "frames_dropped_by_pipeline": 0,
+  "hand_detector_runs": 1108,
+  "calibration": {
+    "rmse_deg": 1.1044563365054016,
+    "centroids_deg": {
+      "hazard_right": 12.909743923321557,
+      "left_mirror": -28.997741785894583,
+      "passenger": 38.09982935376952,
+      "road": 0.36468922388545977
+    },
+    "n_samples": 214
+  },
+  "events": [
+    [
+      22.0381,
+      "HAZARD_ONSET_1"
+    ],
+    [
+      46.0061,
+      "HAZARD_ONSET_2"
+    ]
+  ],
+  "reaction_time_s": {
+    "HAZARD_ONSET_1": 0.5684000000000005,
+    "HAZARD_ONSET_2": 1.3067999999999955
+  },
+  "glances": [
+    [
+      "left_mirror",
+      15.3295,
+      1.0268000000000015
+    ],
+    [
+      "passenger",
+      29.2579,
+      1.8554999999999993
+    ],
+    [
+      "passenger",
+      34.2762,
+      2.0834999999999937
+    ],
+    [
+      "passenger",
+      39.8146,
+      1.829900000000002
+    ],
+    [
+      "passenger",
+      45.2662,
+      2.0467000000000013
+    ],
+    [
+      "left_mirror",
+      53.1651,
+      1.199300000000001
+    ]
+  ],
+  "blinks_detected": 17,
+  "speech_threshold": 0.0015,
+  "time_in_zone_s": {
+    "n/a": 0.05940000000000012,
+    "passenger": 8.026500000000002,
+    "left_mirror": 2.3282000000000007,
+    "road": 31.129199999999997,
+    "hazard_right": 4.323800000000002
+  },
+  "median_latency_ms": 204.18977737426758,
+  "p95_latency_ms": 266.95749759674067,
+  "median_proc_ms": 29.480695724487305
+}

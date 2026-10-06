@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+gazegrip/output/
+gazegrip/models/
+gazegrip/fonts/
+output/

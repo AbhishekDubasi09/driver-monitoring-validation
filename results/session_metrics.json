@@ -1,0 +1,202 @@
+{
+  "gaze_yaw": {
+    "n": 867,
+    "mae_deg": 1.1722742204636591,
+    "rmse_deg": 2.8224921642388554,
+    "bias_deg": -0.09775797143081709,
+    "r": 0.9845964610009326,
+    "p95_abs_deg": 4.064851512793776
+  },
+  "zone_accuracy": {
+    "n": 718,
+    "accuracy": 0.9986072423398329,
+    "per_class": {
+      "hazard_right": 1.0,
+      "left_mirror": 1.0,
+      "passenger": 1.0,
+      "road": 0.998109640831758
+    },
+    "confusion": {
+      "hazard_right": {
+        "hazard_right": 54,
+        "left_mirror": 0,
+        "passenger": 0,
+        "road": 0
+      },
+      "left_mirror": {
+        "hazard_right": 0,
+        "left_mirror": 24,
+        "passenger": 0,
+        "road": 0
+      },
+      "passenger": {
+        "hazard_right": 0,
+        "left_mirror": 0,
+        "passenger": 111,
+        "road": 0
+      },
+      "road": {
+        "hazard_right": 0,
+        "left_mirror": 0,
+        "passenger": 0,
+        "road": 528
+      }
+    }
+  },
+  "hazards": {
+    "HAZARD_ONSET_1": {
+      "onset_s": 22.0381,
+      "scripted_latency_s": 0.45,
+      "true_gaze_arrival_s": 0.4543999999999997,
+      "measured_live_s": 0.5684000000000005,
+      "pre_onset_gaze": "road",
+      "time_to_brake_s": 0.6758999999999986,
+      "min_gap_m": 8.4623,
+      "speed_at_onset_ms": 9.0,
+      "stopped_after_s": 2.203800000000001,
+      "measurement_error_s": 0.11400000000000077
+    },
+    "HAZARD_ONSET_2": {
+      "onset_s": 46.0061,
+      "scripted_latency_s": 1.05,
+      "true_gaze_arrival_s": 1.110999999999997,
+      "measured_live_s": 1.3067999999999955,
+      "pre_onset_gaze": "passenger",
+      "time_to_brake_s": 1.3718999999999966,
+      "min_gap_m": 2.7928,
+      "speed_at_onset_ms": 9.0,
+      "stopped_after_s": 2.8936999999999955,
+      "measurement_error_s": 0.19579999999999842
+    }
+  },
+  "zone_threshold_deg": 6.637216573603508,
+  "phases": [
+    {
+      "phase": "baseline driving",
+      "start": 12,
+      "end": 22,
+      "dur": 10.0,
+      "off_road_pct": 10.836361813579282,
+      "n_glances": 1,
+      "longest_glance_s": 1.0808999999999997,
+      "glances_over_2s": 0,
+      "blink_rate_per_min": 18.0,
+      "perclos_pct": 3.129903005087853,
+      "speaking_pct": 0.0,
+      "both_hands_pct": 73.41788014737214,
+      "steer_sd_deg": 2.4134737180210593,
+      "speed_mean_ms": 9.0
+    },
+    {
+      "phase": "hazard 1 window",
+      "start": 22,
+      "end": 27,
+      "dur": 5.0,
+      "off_road_pct": 0.0,
+      "n_glances": 0,
+      "longest_glance_s": 0.0,
+      "glances_over_2s": 0,
+      "blink_rate_per_min": 24.0,
+      "perclos_pct": 4.709973766471289,
+      "speaking_pct": 0.0,
+      "both_hands_pct": 100.0,
+      "steer_sd_deg": 1.4790640807203699,
+      "speed_mean_ms": 2.668897916666667
+    },
+    {
+      "phase": "conversation",
+      "start": 27.5,
+      "end": 48.5,
+      "dur": 21.0,
+      "off_road_pct": 38.08310657461652,
+      "n_glances": 4,
+      "longest_glance_s": 2.133099999999999,
+      "glances_over_2s": 2,
+      "blink_rate_per_min": 17.142857142857142,
+      "perclos_pct": 2.6203405539646365,
+      "speaking_pct": 99.70103497035304,
+      "both_hands_pct": 100.0,
+      "steer_sd_deg": 2.796281070610171,
+      "speed_mean_ms": 8.463543658536585
+    },
+    {
+      "phase": "hazard 2 window",
+      "start": 46,
+      "end": 51,
+      "dur": 5.0,
+      "off_road_pct": 27.229152401083635,
+      "n_glances": 1,
+      "longest_glance_s": 1.3718999999999966,
+      "glances_over_2s": 0,
+      "blink_rate_per_min": 12.0,
+      "perclos_pct": 2.119741582065554,
+      "speaking_pct": 69.93360921730329,
+      "both_hands_pct": 100.0,
+      "steer_sd_deg": 1.1346303495425691,
+      "speed_mean_ms": 3.9306795918367343
+    },
+    {
+      "phase": "recovery",
+      "start": 51,
+      "end": 58,
+      "dur": 7.0,
+      "off_road_pct": 17.63854229568778,
+      "n_glances": 1,
+      "longest_glance_s": 1.2121999999999957,
+      "glances_over_2s": 0,
+      "blink_rate_per_min": 8.571428571428571,
+      "perclos_pct": 1.6471563998283891,
+      "speaking_pct": 0.0,
+      "both_hands_pct": 68.09725789201812,
+      "steer_sd_deg": 1.4164293225989733,
+      "speed_mean_ms": 7.61389925925926
+    }
+  ],
+  "blinks": {
+    "gt": 17,
+    "detected": 17,
+    "recall": 1.0,
+    "precision": 1.0
+  },
+  "speech": {
+    "tp": 425,
+    "fp": 4,
+    "fn": 15,
+    "tn": 447,
+    "accuracy": 0.978675645342312,
+    "precision": 0.9906759906759907,
+    "recall": 0.9659090909090909
+  },
+  "hands": {
+    "frames_both_on_wheel_pct": 91.54051647373109,
+    "frames_one_hand_pct": 8.459483526268922,
+    "frames_no_hand_pct": 0.0,
+    "longest_gap_s": 2.6514999999999986,
+    "one_hand_while_reaching_pct": 100.0,
+    "display_touch_episodes_detected": 2,
+    "display_touch_episodes_true": 2,
+    "display_touch_matched": 2,
+    "mediapipe_hand_detected_pct": 99.3766696349065
+  },
+  "pipeline": {
+    "frames": 1123,
+    "duration_s": 57.825900000000004,
+    "processed_fps": 19.420363539521215,
+    "face_detected_pct": 100.0,
+    "latency_ms_median": 204.1897773742676,
+    "latency_ms_p95": 266.95749759674067,
+    "proc_ms_median": 29.480695724487305,
+    "proc_ms_p95": 50.90277194976805,
+    "hand_detector_runs": 1108,
+    "calibration": {
+      "rmse_deg": 1.1044563365054016,
+      "centroids_deg": {
+        "hazard_right": 12.909743923321557,
+        "left_mirror": -28.997741785894583,
+        "passenger": 38.09982935376952,
+        "road": 0.36468922388545977
+      },
+      "n_samples": 214
+    }
+  }
+}
