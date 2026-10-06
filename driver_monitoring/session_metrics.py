@@ -2,7 +2,7 @@
 import json, os, sys
 import numpy as np, pandas as pd
 
-OUT = os.environ.get("GAZEGRIP_OUT", os.path.join(os.path.dirname(os.path.abspath(__file__)), "output"))
+OUT = os.environ.get("DRIVER_MONITORING_OUT", os.path.join(os.path.dirname(os.path.abspath(__file__)), "output"))
 OFF_ROAD = {"left_mirror", "passenger"}
 PHASES = {"calibration": (0, 12), "baseline driving": (12, 22), "hazard 1 window": (22, 27), "conversation": (27.5, 48.5), "hazard 2 window": (46, 51), "recovery": (51, 58)}
 

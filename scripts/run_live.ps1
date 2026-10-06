@@ -17,7 +17,7 @@ $ff = & $py -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"
 New-Item -ItemType Directory -Force $Out | Out-Null
 Remove-Item (Join-Path $Out 'window_capture.mp4') -ErrorAction SilentlyContinue
 
-$pyArgs = @((Join-Path $root 'gazegrip\live_dms.py'), '--out', $Out)
+$pyArgs = @((Join-Path $root 'driver_monitoring\live_dms.py'), '--out', $Out)
 if ($NoWindow) { $pyArgs += '--no-window' }
 $pp = Start-Process $py -ArgumentList ($pyArgs | ForEach-Object { "`"$_`"" }) -PassThru `
       -RedirectStandardOutput (Join-Path $Out 'live_stdout.txt') -RedirectStandardError (Join-Path $Out 'live_stderr.txt')

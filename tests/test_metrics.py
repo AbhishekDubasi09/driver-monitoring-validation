@@ -8,7 +8,7 @@ import numpy as np
 import pytest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "gazegrip"))
+sys.path.insert(0, os.path.join(ROOT, "driver_monitoring"))
 
 from session_metrics import compute, runs  # noqa: E402
 

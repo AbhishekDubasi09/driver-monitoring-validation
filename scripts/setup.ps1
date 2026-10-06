@@ -5,7 +5,7 @@ Set-Location $root
 py -3.11 -m venv .venv
 & .\.venv\Scripts\python.exe -m pip install -r requirements.txt -r requirements-dev.txt
 
-$pkg = Join-Path $root 'gazegrip'
+$pkg = Join-Path $root 'driver_monitoring'
 New-Item -ItemType Directory -Force (Join-Path $pkg 'models'), (Join-Path $pkg 'fonts') | Out-Null
 curl.exe -sL -o (Join-Path $pkg 'models\face_landmarker.task') https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task
 curl.exe -sL -o (Join-Path $pkg 'models\hand_landmarker.task') https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task

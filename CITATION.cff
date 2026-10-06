@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Validating camera-based driver monitoring against simulator ground truth"
+type: software
+version: 1.0.0
+date-released: 2026-10-06
+license: MIT
+repository-code: "https://github.com/AbhishekDubasi09/driver-monitoring-validation"
+abstract: "A simulated driver is filmed by virtual cameras in Unity; a Python pipeline (MediaPipe, OpenCV) measures gaze, glances, hand contact and reaction time, and the results are scored against the simulator's ground truth. A delay analysis separates the timing error of the measurement from its accuracy."
+keywords: [driver-monitoring, gaze-estimation, simulation, validation, mediapipe, opencv, unity]
+authors:
+  - given-names: Abhishek
+    family-names: Dubasi
+    alias: AbhishekDubasi09

@@ -1,7 +1,7 @@
 .venv/
 __pycache__/
 .pytest_cache/
-gazegrip/output/
-gazegrip/models/
-gazegrip/fonts/
+driver_monitoring/output/
+driver_monitoring/models/
+driver_monitoring/fonts/
 output/

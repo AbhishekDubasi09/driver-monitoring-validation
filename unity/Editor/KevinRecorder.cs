@@ -49,7 +49,7 @@ public static class KevinRecorder
     // Steps real editor frames (blendshapes only refresh between frames) and saves a mouth close-up per jaw variant.
     public static void MouthTest()
     {
-        string outDir = Arg("-kdOut", Path.Combine(Path.GetTempPath(), "gazegrip_shots", "mouth"));
+        string outDir = Arg("-kdOut", Path.Combine(Path.GetTempPath(), "driver_monitoring_shots", "mouth"));
         Directory.CreateDirectory(outDir);
         EditorSceneManager.OpenScene(KevinSceneBuilder.ScenePath);
         var sc = UnityEngine.Object.FindFirstObjectByType<DriveScenario>(); var beh = sc.driver; sc.ResetScenario();
@@ -102,7 +102,7 @@ public static class KevinRecorder
 
     public static void Shots()
     {
-        string outDir = Arg("-kdOut", Path.Combine(Path.GetTempPath(), "gazegrip_shots"));
+        string outDir = Arg("-kdOut", Path.Combine(Path.GetTempPath(), "driver_monitoring_shots"));
         var ts = Arg("-kdT", "3").Split(',');
         Directory.CreateDirectory(outDir);
         EditorSceneManager.OpenScene(KevinSceneBuilder.ScenePath);
