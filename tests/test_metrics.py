@@ -57,8 +57,9 @@ def test_regression_zone_accuracy(recomputed, saved):
 
 def test_regression_hazard_reactions(recomputed, saved):
     for name in ("HAZARD_ONSET_1", "HAZARD_ONSET_2"):
-        assert recomputed["hazards"][name]["measured_live_s"] == pytest.approx(saved["hazards"][name]["measured_live_s"])
-        assert recomputed["hazards"][name]["true_gaze_arrival_s"] == pytest.approx(saved["hazards"][name]["true_gaze_arrival_s"])
+        got, want = recomputed["hazards"][name], saved["hazards"][name]
+        assert got["measured_live_s"] == pytest.approx(want["measured_live_s"])
+        assert got["true_gaze_arrival_s"] == pytest.approx(want["true_gaze_arrival_s"])
 
 
 def test_regression_hands_and_blinks(recomputed, saved):

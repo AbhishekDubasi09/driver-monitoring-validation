@@ -121,6 +121,7 @@ def reach_timing(df):
     """Reaches to the display: detected (skin in the display region) against the simulator's reach signal."""
     def episodes(mask, t, min_frames=3):
         out, start, n = [], None, 0
+        prev = t[0]
         for m, tt in zip(mask, t):
             if m:
                 n += 1
@@ -149,7 +150,8 @@ def reach_timing(df):
 
 def analyse(out=OUT):
     df, _, summary = load(out)
-    return dict(reaction=reaction_breakdown(df, summary), glances=glance_timing(df, summary), lag=estimate_lag(df), reaches=reach_timing(df),
+    return dict(reaction=reaction_breakdown(df, summary), glances=glance_timing(df, summary),
+                lag=estimate_lag(df), reaches=reach_timing(df),
                 capture_to_analysis_ms=dict(median=summary["median_latency_ms"], p95=summary["p95_latency_ms"]))
 
 

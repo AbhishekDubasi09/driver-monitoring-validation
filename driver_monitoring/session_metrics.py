@@ -1,5 +1,5 @@
 """Post-session metrics: joins the live measurements with the simulator ground truth (validation only) and derives the study numbers."""
-import json, os, sys
+import json, os
 import numpy as np, pandas as pd
 
 OUT = os.environ.get("DRIVER_MONITORING_OUT", os.path.join(os.path.dirname(os.path.abspath(__file__)), "output"))
@@ -86,7 +86,7 @@ def compute(out=OUT):
                          steer_sd_deg=float(w.steer.std()), speed_mean_ms=float(w.speed.mean())))
     R["phases"] = rows
     # ---------- blink validation: GT peaks vs detected closures ----------
-    gb = df[df.blink > 0.6]; gt_blinks = []
+    gt_blinks = []
     last = -9
     for t_, b_ in zip(df.t, df.blink):
         if b_ > 0.6 and t_ - last > 0.15: gt_blinks.append(t_)

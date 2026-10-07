@@ -242,7 +242,6 @@ class Dash:
             x = tx0 + i * (tw + 12)
             cv2.rectangle(c, (x, self.TILES_Y), (x + tw, self.TILES_Y + self.TILES_H), PANEL, -1)
             cv2.rectangle(c, (x, self.TILES_Y), (x + tw, self.TILES_Y + self.TILES_H), EDGE, 1)
-        zcol = ZONE_COL.get(st["zone"], MUTED)
         fx, fy, fw, fh = self.FACE
         if int(time.time() * 2) % 2 == 0: cv2.circle(c, (self.W - 420, 32), 8, (255, 255, 255), -1, cv2.LINE_AA)
         banner = st.get("banner")
@@ -414,7 +413,7 @@ class Session:
         ff = subprocess.Popen([imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{Dash.W}x{Dash.H}", "-r", str(FPS), "-i", "-",
                                "-c:v", "libx264", "-preset", "ultrafast", "-crf", "16", "-pix_fmt", "yuv420p", self.tmp_video], stdin=subprocess.PIPE)
         written = -1
-        last_t = -1.0; wait_img = None; last_view = None
+        wait_img = None; last_view = None
         while not (self.done and self.pkg is None):
             with self.pkg_lock: p = self.pkg; self.pkg = None
             if p is None:
@@ -431,7 +430,7 @@ class Session:
                 else:
                     time.sleep(0.002)
                 continue
-            st = p["st"]; vis_f = p["img_f"].copy(); vis_h = p["img_h"].copy(); zone = p["zone"]
+            st = p["st"]; vis_f = p["img_f"].copy(); vis_h = p["img_h"].copy()
             if p["pts"] is not None:
                 pts = p["pts"]
                 for idx in R_EYE + L_EYE: cv2.circle(vis_f, tuple(pts[idx].astype(int)), 2, (0, 255, 255), -1, cv2.LINE_AA)

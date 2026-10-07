@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install analysis and test dependencies
+        run: pip install -r requirements-analysis.txt -r requirements-dev.txt
+      - name: Check for undefined names and unused code
+        run: python -m pyflakes driver_monitoring tests
+      - name: Run the tests on the saved session
+        run: python -m pytest tests -q
+      - name: Build the delay figure
+        run: python driver_monitoring/figures.py results /tmp/delay_breakdown.png

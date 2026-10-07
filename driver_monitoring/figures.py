@@ -1,4 +1,4 @@
-"""Figure for the delay analysis: where the reaction-time error comes from, and the best-fit delay of the gaze estimate."""
+"""Figure for the delay analysis: where the reaction-time error comes from, and the best-fit delay."""
 import os
 import sys
 
@@ -33,9 +33,10 @@ def make(out=OUT, path="delay_breakdown.png"):
                      f"{1000 * r['raw_estimate_s']:.0f} ms", fontsize=10)
         ax.set_xlabel("time since the pedestrian appeared (s)")
         ax.set_ylabel("horizontal gaze angle (deg)")
-        ax.text(0.02, 0.04, f"estimate +{r['added_by_estimate_ms']:.0f} ms, median filter +{r['added_by_median_ms']:.0f} ms,\n"
-                f"zone debounce +{r['added_by_debounce_ms']:.0f} ms (zone display only)", transform=ax.transAxes,
-                fontsize=8.5, va="bottom")
+        note = (f"estimate +{r['added_by_estimate_ms']:.0f} ms, "
+                f"median filter +{r['added_by_median_ms']:.0f} ms,\n"
+                f"zone debounce +{r['added_by_debounce_ms']:.0f} ms (zone display only)")
+        ax.text(0.02, 0.04, note, transform=ax.transAxes, fontsize=8.5, va="bottom")
     axes[0].legend(fontsize=8, loc="upper left")
     lag = res["lag"]
     ax = axes[2]

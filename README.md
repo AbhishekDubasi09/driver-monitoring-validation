@@ -1,5 +1,8 @@
 # Validating camera-based driver monitoring against simulator ground truth
 
+[![CI](https://github.com/AbhishekDubasi09/driver-monitoring-validation/actions/workflows/ci.yml/badge.svg)](https://github.com/AbhishekDubasi09/driver-monitoring-validation/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A simulated driver is filmed by virtual cameras in Unity. A Python pipeline tracks gaze, glances, hands and reaction time
 from those frames with MediaPipe and OpenCV, and the results are scored against what the simulator knows to be true.
 
@@ -41,6 +44,12 @@ to the Python side over a local TCP socket, and the pipeline works on them live:
 The simulator writes its own ground truth for every frame: true head and eye angles, blink and jaw state, and whether a
 hand is reaching. The pipeline never uses it while measuring. It is used for the calibration and afterwards only to score the
 measurements. `driver_monitoring/delay_analysis.py` then compares timings against it.
+
+### The dashboard at four moments
+
+| Calibration | Hand reach | Conversation | Second pedestrian |
+|---|---|---|---|
+| ![Calibration phase](docs/screenshots/dashboard_calibration.jpg) | ![Hand off the wheel, reaching to the display](docs/screenshots/dashboard_hand_reach.jpg) | ![Driver talking to a passenger](docs/screenshots/dashboard_conversation.jpg) | ![Second pedestrian while looking at the passenger](docs/screenshots/dashboard_second_hazard.jpg) |
 
 ## Findings
 
@@ -112,12 +121,13 @@ driver_monitoring/      the Python side
   session_metrics.py post-drive numbers, validated against the simulator's ground truth
   delay_analysis.py  where the timing error comes from; glance and reach timing
   figures.py         the delay figure
-  report.py          figure and HTML report
+  report.py          figure and HTML report for a live session
   typo.py            typeface setup
 unity/         the simulator side (C#): the driver, the scripted drive, the camera streamer, editor tools
 results/       the saved session and the numbers computed from it
 docs/          demo video, screenshots, figures, session report
 scripts/       setup and run scripts (Windows PowerShell)
+.github/       continuous integration
 tests/         tests for the metric code and the delay analysis
 ```
 
@@ -126,7 +136,7 @@ tests/         tests for the metric code and the delay analysis
 **Recompute everything from the saved session** (any OS, Python 3.11):
 
 ```bash
-pip install -r requirements.txt -r requirements-dev.txt
+pip install -r requirements-analysis.txt -r requirements-dev.txt
 python -m pytest tests
 python driver_monitoring/delay_analysis.py results
 python driver_monitoring/figures.py results docs/delay_breakdown.png

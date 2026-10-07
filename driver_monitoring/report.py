@@ -1,6 +1,6 @@
 """Post-drive session report: one publication-style figure + an HTML report with the research questions answered from the session's own numbers."""
-import base64, json, os
-import numpy as np, pandas as pd
+import base64, os
+import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -8,7 +8,7 @@ from matplotlib import font_manager as fm
 from matplotlib.patches import FancyBboxPatch
 from session_metrics import compute, OUT
 
-from typo import font_path, family_in_use, CSS_STACK
+from typo import font_path, CSS_STACK
 for w_ in ("Regular", "SemiBold", "Bold"):
     fm.fontManager.addfont(font_path(w_))
 FAMILY = fm.FontProperties(fname=font_path("Regular")).get_name()
@@ -85,7 +85,7 @@ def make_figure(df, R, out):
     w = 0.25
     for i, (nm, vals, c) in enumerate(series):
         xs = np.arange(2) + (i - 1) * (w + 0.03)
-        b = ax.bar(xs, vals, width=w, color=c, label=nm, zorder=3)
+        ax.bar(xs, vals, width=w, color=c, label=nm, zorder=3)
         for xx, vv in zip(xs, vals): ax.text(xx, vv + 0.03, f"{vv:.2f}", ha="center", fontsize=9, color=INK, fontweight="bold")
     ax.set_xticks(range(2)); ax.set_xticklabels(labels, fontsize=9); ax.set_ylim(0, 1.75); ax.grid(axis="y", color=GRID, lw=0.6, zorder=0)
     ax.legend(frameon=False, fontsize=8.5, loc="upper left"); ax.set_ylabel("seconds")
@@ -104,7 +104,7 @@ def make_figure(df, R, out):
     ax = fig.add_subplot(gs[1, 4:8]); title(ax, "D", "Eyes off the road, by phase")
     ph = [p for p in R["phases"]]; names = [{"baseline driving": "baseline", "hazard 1 window": "hazard 1", "hazard 2 window": "hazard 2"}.get(p["phase"], p["phase"]) for p in ph]
     cols = [AQUA if p["off_road_pct"] < 20 else ORANGE for p in ph]
-    bars = ax.barh(range(len(ph)), [p["off_road_pct"] for p in ph], color=cols, height=0.58, zorder=3)
+    ax.barh(range(len(ph)), [p["off_road_pct"] for p in ph], color=cols, height=0.58, zorder=3)
     for i, p in enumerate(ph):
         ax.text(p["off_road_pct"] + 0.8, i, f"{p['off_road_pct']:.0f} %   (longest glance {p['longest_glance_s']:.1f} s" + (f", {p['glances_over_2s']} over 2 s)" if p["glances_over_2s"] else ")"),
                 va="center", fontsize=8.8, color=INK)
