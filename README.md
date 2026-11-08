@@ -1,4 +1,4 @@
-# Validating camera-based driver monitoring against simulator ground truth
+# Is the Driver Monitor Right? Validating Camera-Based Driver Monitoring Against Simulator Ground Truth
 
 [![CI](https://github.com/AbhishekDubasi09/driver-monitoring-validation/actions/workflows/ci.yml/badge.svg)](https://github.com/AbhishekDubasi09/driver-monitoring-validation/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
