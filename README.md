@@ -21,7 +21,7 @@ same work from two sides. This one holds the analysis, the saved session and the
 
 Driver monitoring is judged on timing as much as on direction. Euro NCAP's driver-monitoring protocols, for example, define
 distraction through the duration of glances away from the road, with thresholds of the order of two to three seconds (see the
-[protocol](https://cdn.euroncap.com/media/67892/euro-ncap-assessment-protocol-sa-safe-driving-v1001.pdf) for the exact
+[Safe Driving protocol, v10.4](https://cdn.euroncap.com/cars/assets/euro_ncap_assessment_protocol_sa_safe_driving_v104_3090e88253.pdf) for the exact
 definitions). A measurement that is 0.1 to 0.2 s late can matter for a rule like that, and with a real person you cannot say
 at that precision where they were looking. A simulator can. The idea of testing in-cabin algorithms on a platform with
 ground-truth sensors is not new; the [DFKI Cabin Simulator](https://arxiv.org/abs/2002.03749) is one example. What I did here
